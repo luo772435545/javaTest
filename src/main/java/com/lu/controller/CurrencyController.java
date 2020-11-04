@@ -1,7 +1,7 @@
 package com.lu.controller;
 
-import com.lu.dao.UserDao;
-import com.lu.entity.User;
+import com.lu.dao.CurrencyDao;
+import com.lu.entity.Currency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +13,13 @@ import java.util.List;
  * @author GAN
  */
 @Controller
-public class UserController {
+public class CurrencyController {
     @Autowired
-    private UserDao userDao;
+    private CurrencyDao currencyDao;
 
-    @RequestMapping("getUser")
+    @RequestMapping("getCurrency")
     @ResponseBody
-    public List<User> getUser () {
-        return userDao.findAll();
+    public List<Currency> getCurrency () {
+        return currencyDao.getCurrency();
     }
 }
