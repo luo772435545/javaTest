@@ -2,7 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lu.dao.CurrencyDao">
     <select id="getCurrency" resultType="com.lu.entity.Currency">
-        SELECT currency_code,currency_name,currency_cn_name,remark FROM common.currency_info_copy
+        SELECT currency_code,currency_name,currency_cn_name,remark
+        FROM common.currency_info_copy
+        <where>
+            <if test="_parameter != ''">
+                currency_code = #{currencyCode}
+            </if>
+        </where>
     </select>
 </mapper>
 
